@@ -20,8 +20,9 @@ class Shape{
     draw(){
         let center = [w/2, h/2];
         let old = null;
+        let k = document.getElementById("k_input").value;
+
         for(let angle of this.angles){
-            let k = this.k;
             if(this.stoped){k = Math.round(k);}
             let r = (w/2)*Math.cos(k*angle);
             let pos = [
@@ -34,13 +35,13 @@ class Shape{
             }
             old = pos;
         }
-        if (!this.stoped){this.k += this.speed;}
+        // if (!this.stoped){this.k += this.speed;}
 
-        if (this.k >= 10 || this.k <= 0){
-            this.speed = -this.speed;
-        }
+        // if (this.k >= 10 || this.k <= 0){
+        //     this.speed = -this.speed;
+        // }
 
-        document.getElementById("k_show").innerText = "k : "+this.k.toString()
+        document.getElementById("k_show").innerText = "k : "+k.toString()
     }
 }
 
@@ -58,13 +59,13 @@ function draw(){
     shape.draw();
 }
 
-document.getElementById("btn").onclick = ()=>{
-    let btn = document.getElementById("btn");
-    if (shape.stoped){
-        btn.innerText = "stop";
-        shape.stoped = false;
-    } else {
-        btn.innerText = "continue";
-        shape.stoped = true;
-    }
-}
+// document.getElementById("btn").onclick = ()=>{
+//     let btn = document.getElementById("btn");
+//     if (shape.stoped){
+//         btn.innerText = "stop";
+//         shape.stoped = false;
+//     } else {
+//         btn.innerText = "continue";
+//         shape.stoped = true;
+//     }
+// }
